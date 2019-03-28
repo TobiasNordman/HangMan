@@ -11,6 +11,7 @@ Programmets bas
 
 ## Herman
 Planeringen
+Ordlista som Programmet drar slumpvis av.
 
 
 ## Lawen
