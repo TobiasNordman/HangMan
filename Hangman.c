@@ -2,20 +2,41 @@
 #include <stdio.h>
 #include <string.h>
 #include <stdlib.h>
-int main() {
+#include <time.h>
+int main()
+{
+  srand(time(NULL));
 
-      srand(time(NULL));
+  char guessWords[20][20];
 
-      char guessWords[][16] = {
-        "pumpkin",
-        "dagger",
-        "yes"
-      };
+  FILE* c;
+  c = fopen("guessWord.txt","r");
 
-      int randomIndex = rand() % 3 ; //byt 0 mot antal ord
+  int i = 0;
+
+  while(1)
+  {
+    char r = (char)fgetc(c);
+    int k = 0;
+
+    while(r != ',' && !feof(c))
+    {
+      guessWords[i][k++] = r;
+      r = (char)fgetc(c);
+    }
+    guessWords[i][k]=0;
+
+    if(feof(c))
+    {
+      break;
+    }
+      i++;
+  }
+
+      int randomIndex = rand() % 3 ;
 
       int numLives = 8;
-      int numCorrect = 0; //antal rätt gissningar
+      int numCorrect = 0;
       int oldCorrect = 0;
 
       int lenghtOfWord = strlen(guessWords[randomIndex]);
@@ -33,12 +54,14 @@ int main() {
       randomIndex,
       lenghtOfWord);
 
-      while ( numCorrect < lenghtOfWord) {
+      while ( numCorrect < lenghtOfWord)
+      {
         printf("Number correct so far: %d\n",numCorrect );
         printf("Guess a letter: ");
         fgets(guess, 16, stdin);
 
-        if( strncmp(guess, "quit", 4) == 0) {
+        if( strncmp(guess, "quit", 4) == 0)
+        {
           quit = 1;
           break;
         }
@@ -46,13 +69,16 @@ int main() {
         letterGuessed = guess[0];
 
         printf("letterGuessed: %c\n", letterGuessed);
-        for(loopIndex = 0; loopIndex < lenghtOfWord; loopIndex++){
+        for(loopIndex = 0; loopIndex < lenghtOfWord; loopIndex++)
+        {
 
-          if(letterGuessedPos[loopIndex] == 1) {
+          if(letterGuessedPos[loopIndex] == 1)
+          {
             continue;
           }
 
-          if(letterGuessed == guessWords[randomIndex][loopIndex]) {
+          if(letterGuessed == guessWords[randomIndex][loopIndex])
+          {
             letterGuessedPos[loopIndex] = 1; numCorrect++;
           }
         }
