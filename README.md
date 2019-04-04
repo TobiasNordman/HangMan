@@ -6,13 +6,11 @@ Programmet är som spelet "Hänga Gubbe". Programmet väljer ett ord slumpvis fr
 # Uppdelning
 
 ## Tobias
-Programmets bas
-
+Ordlista som Programmet drar slumpvis av, och dess integration in i programmet.
 
 ## Herman
-Planeringen
-Ordlista som Programmet drar slumpvis av.
-
+Planeringen. 
+Programmets bas.
 
 ## Lawen
 
