@@ -7,7 +7,7 @@ int main()
 {
   srand(time(NULL));
 
-  char guessWords[20][20];
+  char guessWords[19][19];
 
   FILE* c;
   c = fopen("guessWord.txt","r");
@@ -33,7 +33,7 @@ int main()
       i++;
   }
 
-      int randomIndex = rand() % 3 ;
+      int randomIndex = rand() % 15 ;
 
       int numLives = 8;
       int numCorrect = 0;
@@ -63,7 +63,7 @@ int main()
              printf("%c",guessWords[randomIndex][loopIndex]);
         }
           else{
-            printf("-");
+            printf("_");
           }
 
         }
