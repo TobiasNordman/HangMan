@@ -33,11 +33,14 @@ int main()
       i++;
   }
 
+  while(1)
+  {
       int randomIndex = rand() % 15 ;
 
       int numLives = 8;
       int numCorrect = 0;
       int oldCorrect = 0;
+      int end = 1;
 
       int lenghtOfWord = strlen(guessWords[randomIndex]);
       int letterGuessedPos[8]={0,0,0,0,0,0,0,0};
@@ -122,6 +125,15 @@ int main()
         }
         else{printf("\n You won!\n");
       }
+
+    printf("Do you want to play again?");
+    scanf("%d", &end);
+
+    if(end == 0)
+    {
+      break;
+    }
+  }
 
   return 0;
 }
