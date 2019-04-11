@@ -70,8 +70,6 @@ int main()
 
           printf("\n");
 
-        printf("Number correct so far: %d\n",numCorrect );
-
         printf("Guess a letter: ");
         fgets(guess, 16, stdin);
 
@@ -96,8 +94,6 @@ int main()
 
           if(oldCorrect == numCorrect){
             numLives--;
-
-
 
             printf("Wrong.\nYou have %d lives left\n",numLives);
             if(numLives == 0){
