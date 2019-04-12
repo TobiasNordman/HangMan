@@ -33,6 +33,8 @@ int main()
       i++;
   }
 
+  while(1)
+  {
       int randomIndex = rand() % 19;
 
       int numLives = 8;
@@ -56,11 +58,13 @@ int main()
 
       while(numCorrect<lenghtOfWord){
 
+
+        printf("\e[1;1H\e[2J");
         printf("\n\nWord:");
         for(loopIndex = 0; loopIndex < lenghtOfWord; loopIndex++){
 
           if(letterGuessedPos[loopIndex] == 1){
-             printf("%c",guessWords[randomIndex][loopIndex]);
+            printf("%c",guessWords[randomIndex][loopIndex]);
         }
           else{
             printf("_");
@@ -114,6 +118,14 @@ int main()
         }
         else{printf("\n You won!\n");
       }
+      printf("Do you want to play again?\n");
+      fgets(guess, 16, stdin);
+
+        if(strncmp(guess, "no", 2) == 0){
+            quit = 1;
+            break;
+        }
+  }
 
   return 0;
 }
